@@ -8,7 +8,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:76px}
 body{margin:0;background:#fff;color:var(--ink);font:18px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:var(--blue)}:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+a{color:var(--blue)}:focus-visible{outline:3px solid var(--sun);outline-offset:2px}main:focus,main:focus-visible{outline:none}
 .w{max-width:1040px;margin:0 auto;padding:0 20px}
 header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
 header .w{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;flex-wrap:wrap}
@@ -51,7 +51,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 .opts button:hover{background:var(--blue);color:#fff}
 @media(max-width:700px){.hero{grid-template-columns:1fr;padding:28px 0}.bar{grid-template-columns:90px 1fr 74px}body{font-size:17px}}
 </style></head><body>
-<header><div class="w"><a class="brand" href="#/" aria-label="OpenLearn home"><img alt="" src="logo-icon.png">Open<b>Learn</b></a>
+<header><div class="w"><a class="brand" href="#/" aria-label="OpenLearn home"><img alt="" src="logo-icon.png"><span>Open<b>Learn</b></span></a>
 <nav aria-label="Main"><a href="#/">Home</a><a href="#/courses">Courses</a><a href="#/blog">Blog</a></nav></div></header>
 <main class="w" id="app" tabindex="-1"></main>
 <footer><div class="w">OpenLearn · Better education. For a brighter future. Course links lead to their original creators, who own the content.</div></footer>
