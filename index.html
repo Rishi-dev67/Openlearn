@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OpenLearn – Learn. Grow. Together.</title>
+<style>
+:root{--navy:#17356b;--blue:#2f78e8;--green:#1f9c70;--sun:#fdb827;--ink:#1c2740;--mute:#586279;--line:#dde3ee;--soft:#f3f6fb;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:76px}
+body{margin:0;background:#fff;color:var(--ink);font:18px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+header .w{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.5rem;color:var(--navy)}
+.brand img{height:42px;width:auto}.brand b{color:var(--green)}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}nav a:hover{color:var(--blue)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:48px 0}
+.hero img{width:100%;max-width:340px;justify-self:center}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:0 0 14px;color:var(--navy)}
+h2{font-size:1.7rem;margin:0 0 8px;color:var(--navy)}h3{margin:0 0 6px;color:var(--navy)}
+.lead{color:var(--mute);max-width:54ch;margin:0 0 22px}
+.btn{display:inline-block;background:var(--blue);color:#fff;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;margin:0 10px 10px 0}
+.btn.g{background:var(--green)}.btn.o{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}.badges span{background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:3px 14px;font-size:.9rem;font-weight:600;color:var(--navy)}
+section{padding:40px 0;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;border-top:5px solid var(--c,var(--blue))}
+.card p{color:var(--mute);margin:0 0 12px;font-size:.96rem}.card a.more{font-weight:700}
+.panel{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:20px;margin:0 0 20px}
+ul.ck{list-style:none;padding:0;margin:0}ul.ck li{padding-left:28px;position:relative;margin-bottom:8px}
+ul.ck li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.bar{display:grid;grid-template-columns:110px 1fr 90px;gap:10px;align-items:center;margin:9px 0;font-size:.92rem}
+.bar i{display:block;height:16px;border-radius:8px;background:var(--c,var(--blue))}
+.bar .t{background:#e6ebf4;border-radius:8px}.bar span:last-child{font-weight:700;color:var(--navy)}
+.note{font-size:.85rem;color:var(--mute)}
+.crumb{display:inline-block;margin:24px 0 0;font-weight:700}
+.post{max-width:68ch}.post h3{margin-top:26px}.post p,.post li{margin:0 0 12px}
+.tag{display:inline-block;background:var(--sun);color:#3a2a00;font-weight:700;font-size:.8rem;border-radius:5px;padding:1px 9px}
+.res a{display:block;padding:10px 0;border-bottom:1px solid var(--line);font-weight:600}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:.9rem}
+.chat{border:1px solid var(--line);border-radius:14px;background:var(--soft);max-width:760px;overflow:hidden}
+.log{position:relative;max-height:480px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.msg{padding:12px 16px;border-radius:14px;max-width:92%;line-height:1.55;font-size:1rem}
+.msg.bot{background:#fff;border:1px solid var(--line);align-self:flex-start}
+.msg.me{background:var(--blue);color:#fff;align-self:flex-end}
+.msg h3{margin:0 0 4px}.msg p{margin:0 0 8px}.msg ul{margin:0 0 8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-top:1px solid var(--line);background:#fff;min-height:58px}
+.opts button{font:inherit;font-size:.95rem;font-weight:600;color:var(--navy);background:#fff;border:2px solid var(--blue);border-radius:99px;padding:8px 16px;cursor:pointer}
+.opts button:hover{background:var(--blue);color:#fff}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding:28px 0}.bar{grid-template-columns:90px 1fr 74px}body{font-size:17px}}
+</style></head><body>
+<header><div class="w"><a class="brand" href="#/" aria-label="OpenLearn home"><img alt="" src="logo-icon.png">Open<b>Learn</b></a>
+<nav aria-label="Main"><a href="#/">Home</a><a href="#/courses">Courses</a><a href="#/blog">Blog</a></nav></div></header>
+<main class="w" id="app" tabindex="-1"></main>
+<footer><div class="w">OpenLearn · Better education. For a brighter future. Course links lead to their original creators, who own the content.</div></footer>
+<script>
+const LOGO="logo-full.png";
+const C={
+web:{n:"Web Development",c:"#2f78e8",e:"🌐",d:"Build websites and web apps that run in any browser.",dem:90,mo:6,ph:[["HTML & CSS",6],["JavaScript",8],["React & Git",6],["Projects",4]],sal:[3,6,14,30],
+learn:["Write HTML pages with proper structure","Style layouts with CSS Flexbox and Grid","Program page behavior with JavaScript","Use Git and GitHub to save and share work","Build and publish three real projects"],
+pre:["Basic computer skills: files, browser, typing","Comfortable reading English instructions","No coding experience needed"],
+jobs:"Frontend developer, full-stack developer, freelance web designer",
+skills:["HTML, CSS, responsive design","JavaScript (ES6+)","A framework such as React","Git and GitHub","Basic Node.js and SQL for full-stack roles","A portfolio of 3 deployed projects"],
+res:[["The Odin Project","https://www.theodinproject.com"],["MDN Learn Web Development","https://developer.mozilla.org/en-US/docs/Learn"],["freeCodeCamp Responsive Web Design","https://www.freecodecamp.org"]]},
+py:{n:"Python",c:"#1f9c70",e:"🐍",d:"Learn the most beginner-friendly language, used in automation, data and AI.",dem:92,mo:5,ph:[["Syntax & logic",5],["Functions & OOP",5],["Libraries",6],["Projects",4]],sal:[3.5,8,18,35],
+learn:["Variables, loops, conditions and functions","Work with lists, dictionaries and files","Object-oriented programming basics","Use libraries such as requests and pandas","Automate boring tasks with scripts"],
+pre:["No programming experience needed","Basic school-level math","A laptop with Python installed (free)"],
+jobs:"Python developer, automation engineer, data analyst, backend developer",
+skills:["Core Python and OOP","SQL and databases","pandas for data work","Flask or Django for web back ends","Git and testing basics","2 to 3 portfolio projects"],
+res:[["MIT 6.0001 Intro to Programming in Python","https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/"],["Harvard CS50 Python","https://cs50.harvard.edu/python"],["freeCodeCamp Python courses","https://www.freecodecamp.org"]]},
+db:{n:"Databases & SQL",c:"#fdb827",e:"🗄️",d:"Store, organize and query data, the base of almost every application.",dem:85,mo:3,ph:[["SQL queries",4],["Design",3],["Indexes",2],["Projects",3]],sal:[3,7,15,30],
+learn:["Read data with SELECT, WHERE and ORDER BY","Combine tables using JOINs","Design tables with keys and normalization","Speed up queries with indexes","Use PostgreSQL or MySQL in a real project"],
+pre:["Comfort with spreadsheets such as Excel","Basic logic: and, or, not","Knowing any programming language helps but is optional"],
+jobs:"Data analyst, backend developer, database administrator, BI analyst",
+skills:["Advanced SQL: joins, subqueries, window functions","Database design","PostgreSQL or MySQL","Python for data work","A BI tool such as Power BI or Tableau","Basic cloud database knowledge"],
+res:[["Harvard CS50 SQL","https://cs50.harvard.edu/sql"],["SQLBolt interactive lessons","https://sqlbolt.com"],["PostgreSQL Tutorial","https://www.postgresqltutorial.com"]]},
+ds:{n:"Data Structures & Algorithms",c:"#17356b",e:"🧩",d:"Learn how to organize data and solve problems efficiently. A core skill for tech interviews.",dem:88,mo:6,ph:[["Arrays & hashing",6],["Recursion",4],["Trees & graphs",8],["Practice",6]],sal:[4,12,30,60],
+learn:["Measure speed with Big-O notation","Use arrays, stacks, queues and hash maps","Understand linked lists, trees and graphs","Apply sorting, searching and recursion","Solve interview-style problems step by step"],
+pre:["Basics of one language, ideally Python","Loops, functions and conditions","High-school math"],
+jobs:"Software engineer, backend engineer. DSA is mainly the interview skill for these roles.",
+skills:["One language known well","Problem-solving practice on 150+ problems","System design basics for mid-level roles","Databases and a back-end project","Git and clean-code habits"],
+res:[["MIT 6.006 Introduction to Algorithms","https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"],["Harvard CS50x","https://cs50.harvard.edu/x"],["freeCodeCamp algorithm courses","https://www.freecodecamp.org"]]}};
+const B=[
+{id:"web-works",t:"How the web works, from typing a URL to seeing a page",m:"6 min",b:`<p>Every time you open a website, a quick chain of events runs. Understanding it makes every later topic easier, because HTML, servers and databases are just parts of this chain.</p><h3>Step 1: DNS finds the address</h3><p>Computers find each other with numbers called IP addresses. Names like openlearn.org are easier to remember, so your device asks a DNS server to translate the name into an IP address, much like looking up a contact in a phone book.</p><h3>Step 2: The browser sends a request</h3><p>Your browser sends an HTTP request to that address. It says which page it wants, and sometimes sends extra data, such as a form you filled in. Secure sites use HTTPS, which encrypts the conversation so others cannot read it.</p><h3>Step 3: The server replies</h3><p>The server may run code, called the back end, and may read data from a database. It then sends back files: HTML for structure, CSS for appearance and JavaScript for behavior.</p><h3>Step 4: The browser draws the page</h3><p>The browser reads the HTML, applies the CSS and runs the JavaScript. This is the front end, the part users see and touch.</p><h3>Where you fit in</h3><ul><li>Front-end developers build what runs in the browser.</li><li>Back-end developers build the server logic and APIs.</li><li>Database skills connect both sides to stored data.</li></ul><p>A good exercise: open your browser's developer tools (F12), go to the Network tab and reload any page. You will see each request in this chain happening live.</p>`},
+{id:"first-language",t:"Which programming language should you learn first?",m:"6 min",b:`<p>Beginners often lose weeks choosing a language. The honest answer is that the first language matters less than sticking with it, but your goal can guide the choice.</p><h3>If you want to build websites</h3><p>Start with HTML and CSS, then JavaScript. JavaScript is the only language that runs natively in every browser, so you will need it anyway.</p><h3>If you want data, automation or AI</h3><p>Choose Python. Its syntax reads almost like English, which lets you focus on ideas such as loops and functions instead of punctuation.</p><h3>If you want interview-ready problem solving</h3><p>Use the language you know best for data structures and algorithms. Python is popular because solutions are short. Java and C++ are also accepted by most companies.</p><h3>How to avoid common traps</h3><ul><li>Do not switch languages after two weeks. The concepts transfer, but you restart the learning curve.</li><li>Do not only watch videos. For every hour of lessons, spend an hour writing your own code.</li><li>Do not wait to feel ready. Build a tiny project in your first month.</li></ul><h3>A simple recommendation</h3><p>If you are unsure, learn Python first, then add SQL, then pick web development. That order gives you quick wins, job-relevant data skills and a clear path to full-stack work.</p>`},
+{id:"sql-basics",t:"Why every developer should know SQL",m:"7 min",b:`<p>Almost every application stores data: users, orders, messages, scores. Relational databases hold much of that data, and SQL is the language used to ask them questions.</p><h3>The core idea</h3><p>A database is a set of tables, like spreadsheets with strict rules. Each row is one record and each column is one property. A key column, such as an ID, makes every row uniquely identifiable.</p><h3>The four moves you use every day</h3><ul><li><b>SELECT</b> reads data.</li><li><b>INSERT</b> adds a new row.</li><li><b>UPDATE</b> changes existing rows.</li><li><b>DELETE</b> removes rows.</li></ul><h3>Why JOINs matter</h3><p>Good designs split data into separate tables, such as students and courses, to avoid repeating information. A JOIN combines them again when you need a combined answer. This is the idea that makes SQL feel difficult at first and powerful later.</p><h3>Design habits worth learning early</h3><ul><li>Give every table a primary key.</li><li>Store each fact once, which is the heart of normalization.</li><li>Add indexes to columns you search often, since they make queries faster.</li></ul><h3>How to practice</h3><p>Install PostgreSQL or use SQLite, load a small dataset and write 30 queries that answer real questions. Free courses like CS50 SQL and SQLBolt guide you step by step.</p>`},
+{id:"dsa-plan",t:"A realistic six-month plan to learn data structures and algorithms",m:"8 min",b:`<p>Data structures and algorithms (DSA) are how programmers organize data and solve problems efficiently. Many companies test them in interviews, so a steady plan pays off.</p><h3>Month 1: Foundations</h3><p>Learn Big-O notation, arrays and strings. Practice simple problems until loops and conditions feel natural.</p><h3>Month 2: Hashing, stacks and queues</h3><p>Hash maps solve a surprising number of problems by trading memory for speed. Stacks and queues teach you to think about order.</p><h3>Month 3: Recursion and sorting</h3><p>Recursion is hard at first. Trace small examples on paper until the call pattern clicks. Then learn merge sort, quick sort and binary search.</p><h3>Months 4 and 5: Trees and graphs</h3><p>Learn binary trees, search trees, heaps, breadth-first and depth-first search. These appear often in harder interviews.</p><h3>Month 6: Dynamic programming and mock interviews</h3><p>Start with simple patterns such as climbing stairs, then practice timed problems and explain your thinking out loud.</p><h3>Rules that make it work</h3><ul><li>Study 1 to 2 hours a day rather than a full day each weekend.</li><li>Before reading a solution, struggle with the problem for at least 20 minutes.</li><li>Keep a notebook of patterns, and redo problems you failed after a week.</li></ul><p>MIT's free 6.006 course on OpenCourseWare gives the theory, and CS50 gives a gentler start.</p>`}];
+const $=document.getElementById("app");
+function bars(rows,c,unit){const m=Math.max(...rows.map(r=>r[1]));return rows.map(r=>`<div class="bar"><span>${r[0]}</span><span class="t"><i style="width:${Math.max(4,r[1]/m*100)}%;--c:${r[2]||c}"></i></span><span>${r[1]}${unit}</span></div>`).join("")}
+function home(){const k=Object.keys(C);return`<div class="hero"><div><h1>Free, open education for everyone.</h1><p class="lead">Learn web development, Python, databases and data structures with open courses from MIT, Harvard and more. See what each skill pays and how long it takes before you start.</p><a class="btn" href="#/courses">Explore courses</a><a class="btn g" href="#/" onclick="event.preventDefault();document.getElementById('plan').scrollIntoView()">Plan my 4 years</a><a class="btn o" href="#/blog">Read the blog</a><div class="badges"><span>Open source</span><span>Free</span><span>Any device</span><span>For everyone</span></div></div><img src="${LOGO}" alt="OpenLearn logo: an open book with a rising sun. Learn, grow, together."></div>
+<section id="plan"><h2>Plan your four years</h2><p class="lead">Tell the guide what you want to become. It shows a year-by-year plan and lets you compare different paths.</p><div class="chat" id="chat" role="log" aria-live="polite" aria-label="Four-year planning guide"></div></section>
+<section><h2>Courses</h2><p class="lead">Choose a skill to see what you will learn, what you need first, and the job outlook.</p><div class="grid">${k.map(i=>card(i)).join("")}</div></section>
+<section><h2>Skills at a glance</h2><p class="lead">Compare the courses. Figures are indicative estimates for India.</p><div class="two"><div class="panel"><h3>Market demand (score out of 100)</h3>${bars(k.map(i=>[C[i].n.split(" ")[0],C[i].dem,C[i].c]),"","")}</div><div class="panel"><h3>Months to become job-ready</h3>${bars(k.map(i=>[C[i].n.split(" ")[0],C[i].mo,C[i].c])," ","mo")}</div></div><p class="note">Demand scores are our own simple estimates from the number and variety of entry-level roles. Check current job portals before planning.</p></section>
+<section><h2>From the blog</h2><div class="grid">${B.slice(0,3).map(p=>`<div class="card"><h3>${p.t}</h3><p>${p.m} read</p><a class="more" href="#/blog/${p.id}">Read article</a></div>`).join("")}</div></section>`}
+function card(i){const c=C[i];return`<div class="card" style="--c:${c.c}"><h3>${c.e} ${c.n}</h3><p>${c.d}</p><a class="more" href="#/course/${i}">View course details</a></div>`}
+function courses(){return`<section style="border:0"><h1>Courses</h1><div class="grid">${Object.keys(C).map(card).join("")}</div></section>`}
+function course(i){const c=C[i];if(!c)return courses();const s=c.sal,tot=c.ph.reduce((a,p)=>a+p[1],0);
+return`<a class="crumb" href="#/courses">Back to courses</a><section style="border:0;padding-top:12px"><h1>${c.e} ${c.n}</h1><p class="lead">${c.d}</p><a class="btn g" href="#/course/${i}" onclick="event.preventDefault();document.getElementById('res').scrollIntoView()">Start with free material</a>
+<div class="two"><div class="panel"><h3>What you will learn</h3><ul class="ck">${c.learn.map(x=>`<li>${x}</li>`).join("")}</ul></div><div class="panel"><h3>What you need before you start</h3><ul class="ck">${c.pre.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>
+<h2>Market view</h2><div class="two"><div class="panel"><h3>Demand in the job market</h3>${bars([["Demand",c.dem]],c.c,"/100")}<p class="note">Common roles: ${c.jobs}</p></div>
+<div class="panel"><h3>Time to learn (${c.mo} months, about ${tot} weeks)</h3>${bars(c.ph.map(p=>[p[0],p[1]]),c.c," wk")}<p class="note">Based on about 1 to 2 hours of study per day.</p></div></div>
+<div class="panel"><h3>Average yearly pay in India (lakh rupees)</h3>${bars([["Fresher",s[1]],["2 to 5 years",s[2]],["Senior",s[3]]],c.c," LPA")}<p class="note">Entry pay is usually around ${s[0]} to ${s[1]} LPA. These are indicative ranges. Pay varies with city, company and skill depth, so verify on current job sites.</p></div>
+<div class="panel"><h3>Skills to learn to get a job with ${c.n}</h3><ul class="ck">${c.skills.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+<div class="panel res" id="res"><h3>Free courses and material</h3>${c.res.map(r=>`<a href="${r[1]}" target="_blank" rel="noopener">${r[0]}</a>`).join("")}<p class="note">Links open the original creators' sites in a new tab.</p></div></section>`}
+function blog(){return`<section style="border:0"><h1>Blog</h1><p class="lead">Detailed guides for new developers.</p><div class="grid">${B.map(p=>`<div class="card"><span class="tag">${p.m} read</span><h3>${p.t}</h3><a class="more" href="#/blog/${p.id}">Read article</a></div>`).join("")}</div></section>`}
+function post(id){const p=B.find(x=>x.id==id);if(!p)return blog();return`<a class="crumb" href="#/blog">Back to blog</a><article class="post"><h1>${p.t}</h1><span class="tag">${p.m} read</span>${p.b}</article>`}
+const T={
+web:{n:"Web Developer",k:"HTML, CSS, JavaScript, React",y:[
+{t:"Year 1: Build the base",g:"Learn how the web works and publish your first pages.",i:["HTML and CSS: build 3 small pages (profile, blog, landing page)","Basic JavaScript: variables, functions, loops","Git and GitHub: push every project","One college language, Python or C"],c:["web","py"],o:"you can build and publish a simple responsive website."},
+{t:"Year 2: Make pages interactive",g:"Move from static pages to real apps.",i:["Modern JavaScript and the DOM","React basics and a small app (todo, weather)","SQL basics for storing data","Start data structures: arrays, hash maps"],c:["web","db","ds"],o:"you have 2 working apps online and know React basics."},
+{t:"Year 3: Go full-stack and get experience",g:"Learn the server side and look for an internship.",i:["Node.js and building APIs","Database design with PostgreSQL or MongoDB","Login, forms and deploying an app","Apply for internships and contribute to open source"],c:["web","db"],o:"you have one full-stack project and your first internship or freelance work."},
+{t:"Year 4: Get job-ready",g:"Polish your portfolio and prepare for hiring.",i:["Capstone project with real users","Portfolio site with 3 best projects","Practice 100 easy and medium coding problems","Mock interviews and resume review"],c:["ds","web"],o:"you are ready to apply for frontend and full-stack roles."}]},
+data:{n:"Data and AI",k:"Python, SQL, statistics, machine learning",y:[
+{t:"Year 1: Python and math base",g:"Get comfortable with code and numbers.",i:["Python: loops, functions, files","Excel or Google Sheets for data basics","Statistics and linear algebra refreshers","Git and GitHub basics"],c:["py"],o:"you can write Python scripts that clean and summarize data."},
+{t:"Year 2: Work with real data",g:"Learn the tools analysts use daily.",i:["SQL: joins, grouping, window functions","pandas and charts with matplotlib","Data structures basics","Analyze 3 public datasets"],c:["py","db","ds"],o:"you can answer business questions from data with SQL and Python."},
+{t:"Year 3: Machine learning and experience",g:"Build models and prove it with projects.",i:["Machine learning basics with scikit-learn","Kaggle practice and 2 end-to-end projects","A BI tool such as Power BI or Tableau","Apply for data internships"],c:["py","db"],o:"you have 2 ML projects and a data internship attempt."},
+{t:"Year 4: Specialize and apply",g:"Pick a direction and prepare for roles.",i:["Choose: analytics, machine learning or data engineering","Capstone using real or open data","SQL and Python interview practice","Portfolio on GitHub with clear write-ups"],c:["py","ds"],o:"you are ready for data analyst or junior ML roles."}]},
+swe:{n:"Software Engineer",k:"Programming, data structures, databases",y:[
+{t:"Year 1: Strong programming basics",g:"Pick one language and learn to think in code.",i:["One language well: Python, Java or C++","Loops, functions, recursion basics","Git and GitHub","Solve 50 easy problems"],c:["py","ds"],o:"you solve easy problems comfortably in your chosen language."},
+{t:"Year 2: Data structures and databases",g:"Build the core knowledge interviews test.",i:["Arrays, hash maps, stacks, queues, linked lists","Big-O and sorting and searching","Object-oriented programming","SQL and basic database design"],c:["ds","db"],o:"you can solve medium problems and design simple tables."},
+{t:"Year 3: Practice and projects",g:"Deepen skills and start applying.",i:["Trees, graphs and recursion","150 to 200 practice problems","One back-end project with a database","Operating systems, networks and DBMS basics; apply for internships"],c:["ds","db","py"],o:"you have an internship attempt and one solid back-end project."},
+{t:"Year 4: Interview preparation",g:"Turn skills into offers.",i:["Dynamic programming and mock interviews","System design basics","Resume and LinkedIn polish","Apply early to many companies"],c:["ds"],o:"you are interview-ready for software engineer roles."}]},
+full:{n:"Full-Stack Engineer",k:"Web, databases and data structures together",y:[
+{t:"Year 1: Web and programming basics",g:"Learn two things in parallel: pages and logic.",i:["HTML, CSS and basic JavaScript","Python or your college language","Git and GitHub","Build 2 small websites"],c:["web","py"],o:"you can build simple sites and write basic programs."},
+{t:"Year 2: Front end plus data structures",g:"Add depth to both sides.",i:["React and a small app","SQL and database basics","Arrays, hash maps, stacks, queues","Start solving easy problems weekly"],c:["web","db","ds"],o:"you have a React app and solve easy problems."},
+{t:"Year 3: Full-stack project and internship",g:"Join front end, back end and database.",i:["Node.js or Django API with a database","Authentication and deployment","100 practice problems","Internship or open-source contribution"],c:["web","db","ds"],o:"you have one deployed full-stack product."},
+{t:"Year 4: Specialize and apply",g:"Be strong in both projects and interviews.",i:["Capstone with real users","System design basics","Mock interviews","Portfolio and resume ready"],c:["web","ds","db"],o:"you are ready for full-stack and software roles."}]}};
+function initChat(){const el=document.getElementById("chat");if(!el)return;
+const log=document.createElement("div");log.className="log";const opts=document.createElement("div");opts.className="opts";el.append(log,opts);
+const say=(w,h)=>{const m=document.createElement("div");m.className="msg "+w;m.innerHTML=h;log.append(m);log.scrollTo({top:m.offsetTop-12,behavior:"smooth"})};
+const ask=a=>{opts.innerHTML="";a.forEach(([l,f])=>{const b=document.createElement("button");b.textContent=l;b.onclick=()=>{say("me",l);opts.innerHTML="";setTimeout(f,250)};opts.append(b)})};
+const start=()=>{say("bot","Hi! I'm your OpenLearn guide. I'll help you plan your 4 years of college. What do you want to become?");ask(Object.keys(T).map(k=>[T[k].n,()=>pick(k)]).concat([["I'm not sure yet",unsure]]))};
+const unsure=()=>{say("bot","No problem. Most first-year students are unsure. Start with Python for 2 months, then follow what you enjoyed. Which sounds most fun?");ask([["Making websites",()=>pick("web")],["Working with data",()=>pick("data")],["Solving puzzles",()=>pick("swe")],["A bit of everything",()=>pick("full")]])};
+const pick=k=>{say("bot","Great choice: <b>"+T[k].n+"</b>. This path combines "+T[k].k+". Here is the plan, one year at a time. Treat it as a guide and adjust it to your college syllabus.");year(k,0)};
+const year=(k,n)=>{const y=T[k].y[n];say("bot","<h3>"+y.t+"</h3><p>"+y.g+"</p><ul class='ck'>"+y.i.map(x=>"<li>"+x+"</li>").join("")+"</ul><p><b>By the end of the year:</b> "+y.o+"</p><p>Free courses: "+y.c.map(c=>"<a href='#/course/"+c+"'>"+C[c].n+"</a>").join(", ")+"</p>");
+const a=[];if(n<3)a.push(["Show Year "+(n+2)+" plan",()=>year(k,n+1)]);else say("bot","That is the full four-year plan. Want to compare another path?");
+a.push(["Compare another path",()=>{say("bot","Which path do you want to see?");ask(Object.keys(T).filter(x=>x!=k).map(x=>[T[x].n,()=>pick(x)]))}],["Start over",start]);ask(a)};
+start()}
+function route(){const h=(location.hash||"#/").slice(2).split("/");const r=h[0];
+$.innerHTML=r=="course"?course(h[1]):r=="courses"?courses():r=="blog"?(h[1]?post(h[1]):blog()):home();
+if(!["course","courses","blog"].includes(r))initChat();
+if(h[0]!=="res"){window.scrollTo(0,0);$.focus({preventScroll:true})}}
+addEventListener("hashchange",route);route();
+</script></body></html>

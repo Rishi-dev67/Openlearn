@@ -1,4 +1,4 @@
-# Openlearn# OpenLearn
+# OpenLearn
 
 **Learn. Grow. Together.**
 
